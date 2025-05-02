@@ -4,7 +4,7 @@ const logger = require("firebase-functions/logger");
 const nodemailer = require("nodemailer");
 const cors = require("cors")({ origin: true });
 
-// Access your secrets
+// Accessing  secrets
 const gmailEmail = defineSecret("GMAIL_EMAIL");
 const gmailPassword = defineSecret("GMAIL_PASSWORD");
 
@@ -18,18 +18,20 @@ exports.sendContactEmail = onRequest(
     }
     const { name, email, message } = req.body;
 
-    // Create the transport
+    // Creating the transport
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: gmailEmail.value(),  // Accessing the secret's value
-    pass: gmailPassword.value(), // Accessing the secret's value
+    user: process.env.GMAIL_EMAIL,
+    pass: process.env.GMAIL_PASSWORD,
+    // user: gmailEmail.value(),  // Accessing the secret's value
+    // pass: gmailPassword.value(), // Accessing the secret's value
   },
 });
-
+ //email sending logic
     const mailOptions = {
       from: email,
-      to: gmailEmail.value(), // Accessing the secret's value
+      to: process.env.GMAIL_EMAIL,// Accessing the secret's value
       subject: `New message from ${name}`,
       text: message,
     };
