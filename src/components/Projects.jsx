@@ -242,22 +242,22 @@ const Projects = () => {
           <div className="flex flex-col lg:flex-row items-center lg:justify-center  lg:bg-purple-200 p-2 my-2">
             <span className="lg:hidden text-lg font-bold text-indigo-500">
               <a
-                href="https://your-project-link.com"
+                href="https://luminous-cat-a6d705.netlify.app/"
                 className="hover:underline focus:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Basic Calculator
+                Login Form
               </a>
             </span>
             <a
-              href="https://your-project-link.com"
+              href="https://luminous-cat-a6d705.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
             >
               <img
-                src={calculator}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw5JzMJz48PHjwEdaLmLtlskdYLOROdFhLtQ&s"
                 alt="instagram clone"
                 className="bg-white h-50 w-60 rounded-xl cursor-pointer  mb-4 lg:mb-0 lg:mr-12"
               />
@@ -266,20 +266,18 @@ const Projects = () => {
             <div className="description hidden lg:block lg:pl-12">
               <span className="text-sm font-bold text-indigo-500">
                 <a
-                  href="https://your-project-link.com"
+                  href="https://luminous-cat-a6d705.netlify.app/"
                   className="hover:underline focus:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Basic Calculator
+                  Login Form
                 </a>
               </span>
               <p className="text-gray-600 w-200">
-                A responsive calculator built with HTML, CSS, JavaScript that
-                performs fundamental arithmetic operations. The calculator has
-                core functionality—addition, subtraction, multiplication, and
-                division—and real-time display showing current input and
-                results.
+              A basic Login form to authenticate a user based on the required fields.This form, built using react-hook form 
+              aims to provide a user-friendly interface for entering credentials and includes validation for email and password and also generate a username for the signed up user 
+              which they can use also to login if they do not want to use their email.The registered user infomation is kept in local storage for easy access and management.
               </p>
             </div>
           </div>
@@ -352,7 +350,7 @@ const Projects = () => {
           <div className="flex flex-col lg:flex-row items-center lg:justify-center  lg:bg-purple-200 p-2 my-2">
             <span className="lg:hidden text-lg font-bold text-indigo-500">
               <a
-                href="https://zaio-netflix-landing-page-clone.onrender.com"
+                href="https://kaleidoscopic-froyo-23babe.netlify.app/"
                 className="hover:underline focus:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -361,7 +359,8 @@ const Projects = () => {
               </a>
             </span>
             <a
-              href="https://zaio-netflix-landing-page-clone.onrender.com"
+         
+              href="https://kaleidoscopic-froyo-23babe.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
@@ -376,7 +375,7 @@ const Projects = () => {
             <div className="description hidden lg:block lg:pl-12">
               <span className="text-sm font-bold text-indigo-500">
                 <a
-                  href="https://zaio-netflix-landing-page-clone.onrender.com"
+                  href="https://kaleidoscopic-froyo-23babe.netlify.app/"
                   className="hover:underline focus:underline"
                   target="_blank"
                   rel="noopener noreferrer"
