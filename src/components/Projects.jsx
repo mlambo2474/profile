@@ -29,11 +29,11 @@ const Projects = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center text-gray-600 pt-2 mb-2 font-bold text-sm">
-        <span className="pr-8 cursor-pointer" onClick={reactPagesHandler}>
+      <div className="flex sticky top-16 z-50 bg-pink-100 h-16 justify-center items-center text-indigo-500  pt-2 mb-2 font-bold text-sm">
+        <span className="pr-8 cursor-pointer underline hover:text-gray-600" onClick={reactPagesHandler}>
           Full Stack (JavaScript, React & Firebase)
         </span>
-        <span className="pr-8 cursor-pointer" onClick={staticPagesHandler}>
+        <span className="pr-8 cursor-pointer  underline hover:text-gray-600" onClick={staticPagesHandler}>
           HTML5 & CSS3{" "}
         </span>
       </div>

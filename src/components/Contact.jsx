@@ -11,7 +11,7 @@ import { storage } from "../firebase";
 import { ref, getDownloadURL } from "firebase/storage";
 // import emailjs from "@emailjs/browser";
 import { useForm, ValidationError } from "@formspree/react";
-
+import { motion } from "framer-motion";
 // import axios from "axios";
 
 const Contacts = () => {
@@ -85,11 +85,16 @@ const Contacts = () => {
   //   };
 
   return (
-    <div className="w-full flex justify-center items-center h-screen snap-start px-4">
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-x-10 max-w-[1000px] w-full">
+    <div className="w-full flex justify-center items-center  snap-start px-4">
+      <div className="flex flex-col lg:flex-row items-center justify-start gap-x-10 max-w-[1000px] w-full">
         {/* Left Section */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0">
-          <h1 className="text-4xl lg:text-[50px] font-bold text-gray-600 mb-6">
+        <motion.div 
+         className="lg:w-1/2 mt-16 lg:mb-0"
+            initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+         >
+          <h1 className="text-4xl lg:text-[50px] font-bold text-gray-600 mb-10 ">
             Contact me
           </h1>
 
@@ -135,11 +140,17 @@ const Contacts = () => {
           <div className="pt-8 pb-12">
             <Button onClick={downloadCV}>Download CV</Button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Section: Contact Form */}
-        <form onSubmit={handleSubmit} className="w-full max-w-md lg:w-1/2">
-          <div className="flex flex-col text-gray-600 text-sm space-y-3">
+        {/* Contact Form */}
+      
+        <form onSubmit={handleSubmit} className="w-full max-w-md lg:w-1/2 lg:mt-8">
+          < motion.div
+           className="flex flex-col text-gray-600 text-sm space-y-3"
+             initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+           >
             <input
               className="bg-purple-200 border border-gray-400 h-10 px-2 focus:outline-none"
               type="text"
@@ -183,8 +194,9 @@ const Contacts = () => {
             <div className="pt-4">
               <Button type="submit">Submit</Button>
             </div>
-          </div>
+          </motion.div>
         </form>
+      
       </div>
     </div>
   );
