@@ -85,17 +85,35 @@ const Contacts = () => {
   //   };
 
   return (
-    <div className="w-full flex justify-center items-center  snap-start px-4">
+    <>
+         <motion.div 
+      initial ={{ opacity: 0, y:-70}}
+      animate ={{ opacity:1, y:0}}
+      transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
+      className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
+        <img
+          src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
+          alt="header"
+          className="w-full h-100  rounded-lg shadow-lg"
+        />
+
+        <h1 className="text-8xl absolute font-bold text-indigo-500">
+          Contact me
+        </h1>
+        {/* If you want it on top, wrap in a relative and use absolute: */}
+      </motion.div>
+      <div className="w-full flex justify-center items-center  snap-start px-4">
+      
       <div className="flex flex-col lg:flex-row items-center justify-start gap-x-10 max-w-[1000px] w-full">
         {/* Left Section */}
         <motion.div 
          className="lg:w-1/2 mt-16 lg:mb-0"
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: -70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
          >
           <h1 className="text-4xl lg:text-[50px] font-bold text-gray-600 mb-10 ">
-            Contact me
+            Lets Connect
           </h1>
 
           <div className="flex flex-col font-medium text-gray-600 space-y-4">
@@ -147,9 +165,9 @@ const Contacts = () => {
         <form onSubmit={handleSubmit} className="w-full max-w-md lg:w-1/2 lg:mt-8">
           < motion.div
            className="flex flex-col text-gray-600 text-sm space-y-3"
-             initial={{ opacity: 0, x: 100 }}
+             initial={{ opacity: 0, x: 70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
            >
             <input
               className="bg-purple-200 border border-gray-400 h-10 px-2 focus:outline-none"
@@ -199,6 +217,8 @@ const Contacts = () => {
       
       </div>
     </div>
+    </>
+  
   );
 };
 

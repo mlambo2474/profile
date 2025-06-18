@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 
 const Header = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
+
+   
+
   const navItems = ["/", "skills", "about", "projects", "contact"];
   const labels = ["Home", "Services", "About", "Projects", "Contact"];
 
   return (
-    <div className="w-full bg-indigo-500 shadow-md">
-      <div className='flex h-16 items-center justify-between px-4 lg:px-8'>
-        <div className='flex flex-col text-xs sm:text-sm'>
+    <div className={` w-full transition-colors duration-300  `}>
+      <div className="flex h-16 items-center justify-between px-4 lg:px-8">
+        <div className="flex flex-col text-white text-xs sm:text-sm">
           <p>generaltonde@gmail.com</p>
           <p>+27 61 310 1642</p>
         </div>
@@ -24,7 +27,11 @@ const Header = () => {
               to={path === "/" ? "/" : `${path}`}
               className={({ isActive }) =>
                 `px-2 py-1 mx-2 cursor-pointer transition duration-300 border-b-2
-                ${isActive ? "border-white text-pink-200" : "border-transparent hover:text-indigo-500 hover:bg-pink-200 rounded-lg"}`
+                ${
+                  isActive
+                    ? "border-white text-white"
+                    : "border-transparent hover:text-indigo-500 hover:bg-pink-300 rounded-lg"
+                }`
               }
             >
               {labels[index]}
@@ -51,7 +58,11 @@ const Header = () => {
               onClick={() => setMenuOpen(false)} // close menu on click
               className={({ isActive }) =>
                 `block w-full px-2 py-2 text-sm text-center font-medium transition duration-300 border-b border-gray-200
-                ${isActive ? "text-indigo-700" : "text-indigo-400 hover:text-indigo-700"}`
+                ${
+                  isActive
+                    ? "text-indigo-400"
+                    : "text-indigo-400 hover:text-indigo-700 hover:bg-pink-300 rounded-lg"
+                }`
               }
             >
               {labels[index]}

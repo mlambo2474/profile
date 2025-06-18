@@ -9,3 +9,7 @@ html, body {
   max-width: 100%;
  
 }
+@keyframes upDown {
+  0%, 100% { transform: translateY(100%); }
+  50% { transform: translateY(0%); }
+}

@@ -45,13 +45,29 @@ const AboutMe = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4">
+           <motion.div 
+      initial ={{ opacity: 0, y:-70}}
+      animate ={{ opacity:1, y:0}}
+      transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
+      className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
+        <img
+          src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
+          alt="header"
+          className="w-full h-100  rounded-lg shadow-lg"
+        />
+
+        <h1 className="text-8xl absolute font-bold text-indigo-500">
+          About me
+        </h1>
+        {/* If you want it on top, wrap in a relative and use absolute: */}
+      </motion.div>
       <div className="flex flex-col lg:flex-row justify-center mt-8 px-4 lg:px-20 snap-start">
         {/* Image + Title */}
         <motion.div
           className="mb-8 lg:mb-0 lg:mr-20"
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
         >
           <p className="text-xl sm:text-4xl  lg:text-[48px] font-bold pb-4 text-gray-600 text-center ">
             About me
@@ -64,9 +80,9 @@ const AboutMe = () => {
         {/* Description + Tabs */}
         <motion.div
           className="max-w-3xl w-full"
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 70 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
         >
           <p className="text-sm sm:text-base text-gray-600 mt-4 lg:mt-8">
             I'm a passionate front-end developer with a strong foundation in

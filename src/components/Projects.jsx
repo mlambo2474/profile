@@ -10,6 +10,8 @@ import tictactoe from "../assets/tictac.jpg";
 import youtube from "../assets/youtube.jpg";
 import tesla from "../assets/tesla-Emblem.png";
 import netflix from "../assets/Netflix-Logo.png";
+import { motion } from "framer-motion";
+
 import google from "../assets/google.png";
 // import airbnb from '../assets/airbnb.png'
 
@@ -29,20 +31,36 @@ const Projects = () => {
 
   return (
     <div>
-      <div className="flex sticky top-16 z-50 bg-pink-100 h-16 justify-center items-center text-indigo-500  pt-2 mb-2 font-bold text-sm">
+          <motion.div 
+      initial ={{ opacity: 0, y:-70}}
+      animate ={{ opacity:1, y:0}}
+      transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
+      className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
+        <img
+          src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
+          alt="header"
+          className="w-full h-100  rounded-lg shadow-lg"
+        />
+
+        <h1 className="text-8xl absolute font-bold text-indigo-500">
+          Projects
+        </h1>
+        {/* If you want it on top, wrap in a relative and use absolute: */}
+      </motion.div>
+      <div className="flex sticky top-16 z-50 bg-pink-100 h-16 justify-center items-center text-indigo-500  pt-2 mb-2 font-bold text-lg">
         <span className="pr-8 cursor-pointer underline hover:text-gray-600" onClick={reactPagesHandler}>
-          Full Stack (JavaScript, React & Firebase)
+          Front-end (JavaScript, React & Firebase)
         </span>
         <span className="pr-8 cursor-pointer  underline hover:text-gray-600" onClick={staticPagesHandler}>
-          HTML5 & CSS3{" "}
+          HTML5 & CSS3(Static Websites){" "}
         </span>
       </div>
 
       {isfullstack && (
         <>
-          <h1 className="border-t border-gray-400 font-bold text-center text-indigo-500 px-4 mt-8 underline">
+          {/* <h1 className="border-t border-gray-400 font-bold text-center text-indigo-500 px-4 mt-8 underline">
             JAVASCRIPT, REACT AND FIREBASE
-          </h1>
+          </h1> */}
           <p className="text-xs pb-2 px-4 text-gray-600 text-center">
             Note: These clones for educational purposes and have limited
             functionality and limited real app content please visit my github
@@ -56,7 +74,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Instagram Clone (fullstack)
+                Instagram Clone 
               </a>
             </span>
             <a
@@ -80,7 +98,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Instagram Clone (fullstack)
+                  Instagram Clone 
                 </a>
               </span>
               <p className="text-gray-600 w-200">
@@ -127,7 +145,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Amazon Clone (fullstack)
+                  Amazon Clone
                 </a>
               </span>
               <p className="text-gray-600 w-200">
@@ -152,7 +170,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Airbnb Clone (fullstack)
+                Airbnb Clone 
               </a>
             </span>
             <a
@@ -199,7 +217,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Tic Tac Toe(fullstack)
+                Tic Tac Toe
               </a>
             </span>
             <a
@@ -223,7 +241,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Tic Tac Toe (fullstack)
+                  Tic Tac Toe 
                 </a>
               </span>
               <p className="text-gray-600 w-200">
@@ -290,7 +308,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Multiplication Game (fullstack)
+                Multiplication Game 
               </a>
             </span>
             <a
@@ -314,7 +332,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Multiplication Game(fullstack)
+                  Multiplication Game
                 </a>
               </span>
               <p className="text-gray-600 w-200">
@@ -337,9 +355,9 @@ const Projects = () => {
       {isStatic && (
         <>
           <div>
-            <h1 className="border-t border-gray-400 font-bold text-indigo-500 text-center px-4 mt-8 underline">
+            {/* <h1 className="border-t border-gray-400 font-bold text-indigo-500 text-center px-4 mt-8 underline">
               HTML & CSS
-            </h1>
+            </h1> */}
 
             <p className="text-xs pb-2 px-4 text-gray-600 text-center">
               Note: These are static clones for educational purposes and have no
