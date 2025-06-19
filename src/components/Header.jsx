@@ -26,7 +26,7 @@ const Header = () => {
               key={path}
               to={path === "/" ? "/" : `${path}`}
               className={({ isActive }) =>
-                `px-2 py-1 mx-2 cursor-pointer transition duration-300 border-b-2
+                `px-2 py-1 mx-2 cursor-pointer transition duration-300 easeOut border-b-2
                 ${
                   isActive
                     ? "border-white text-white"

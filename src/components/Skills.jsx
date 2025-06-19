@@ -75,11 +75,11 @@ const Skills = () => {
           </h1>
           <p className="text-center text-white mt-2">
             2. I develop fast, dynamic Single Page Applications (SPAs) using
-            modern frameworks like React, Vue, or Angular. SPAs deliver a
+             React. SPAs deliver a
             smoother, app-like experience by loading content dynamically without
             full page refreshes. I optimize SPAs for performance, implementing
-            client-side routing (React Router, Vue Router) and state management
-            (Redux, Pinia, Context API) to ensure scalability and
+            client-side routing (React Router) and state management
+            (Redux, Context API) to ensure scalability and
             maintainability. Key Strengths: Seamless navigation with instant
             load transitions Efficient state management for complex UIs
             Integration with backend APIs for real-time data
@@ -98,8 +98,8 @@ const Skills = () => {
             using fetch, Axios, or Apollo Client. My implementations include
             error handling, loading states, and data caching for reliability and
             performance. Examples of API Work: User authentication (JWT, OAuth)
-            Dynamic content loading (e.g., blogs, dashboards) Real-time updates
-            (WebSockets, Firebase)
+            Dynamic content loading (e.g., blogs, notes) Real-time updates
+            (Firebase)
           </p>
         </div>
       </div>

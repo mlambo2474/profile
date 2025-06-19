@@ -2,6 +2,12 @@ import React from "react";
 import image from "../assets/tondev.jpg";
 import { motion } from "framer-motion";
 import ticVideo from "../assets/ticvideo.mp4";
+import amazonvid from "../assets/amazon.mp4";
+import teslavid from "../assets/tesalvid.mp4";
+import airbnbvid from "../assets/airbnb.mp4";
+import netflixvid from "../assets/netflixvid.mp4";
+import signupvid from "../assets/signUPvideo.mp4";
+
 import { FaReact } from "react-icons/fa";
 import { FaJs } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa6";
@@ -10,15 +16,25 @@ import { SiTailwindcss } from "react-icons/si";
 import { SiTypescript } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { FaGit } from "react-icons/fa";
-import teslavid from "../assets/teslavid.mp4";
+// import teslavid from "../assets/teslavid.mp4";
 import Skills from "./Skills"; // Assuming Skills component is in the same directory
 
 const Home = () => {
   return (
-    <div className="bg-[url('https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg')] bg-cover bg-center bg-cover h-full ">
-         {/* <div className=" bg-conic-180 from-indigo-600 via-indigo-50 to-indigo-600 bg-cover bg-center bg-cover min-h-300 -z-10"> */}
+    <div className="bg-[url('https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg')] bg-cover bg-center bg-cover h-full  ">
 
-    <div className="flex flex-col lg:flex-row items-center justify-center px-4 lg:px-20 py-10 h-auto  text-purple-900">
+   <motion.div 
+      initial ={{ opacity: 0, y:-70}}
+      animate ={{ opacity:1, y:0}}
+      transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
+      className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
+        <img
+          src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
+          alt="header"
+          className="w-full h-100  rounded-lg shadow-lg"
+        />
+
+        <div className=" absolute flex flex-col lg:flex-row items-center justify-center px-4 lg:px-20 py-10 h-auto  text-purple-900">
         {/* Image Section */}
         <motion.div
           className="mb-8 lg:mb-0 lg:mr-12 flex-shrink-0 lg:pt-12 "
@@ -28,7 +44,7 @@ const Home = () => {
         >
           <img
             src={image}
-            alt="Tonderai Mlambo"
+            alt="Tonderai Mlambo's image"
             className="w-64 h-64 rounded-full object-cover"
           />
         </motion.div>
@@ -52,11 +68,17 @@ const Home = () => {
           </p>
         </motion.div>
       </div>
+
+
+        {/* If you want it on top, wrap in a relative and use absolute: */}
+      </motion.div>
+
+
+
+  
+
+
       <div>
-
-
-        
-       
           <motion.div 
       initial ={{ opacity: 0, y: 80}}
       animate ={{ opacity:1, y:0}}
@@ -66,7 +88,7 @@ const Home = () => {
             My Work
           </h2>
 
-          <div className=" hidden lg:block text-indigo-500 text-5xl fixed bottom-8 left-8 mt-16 z-index-100">
+          <div className=" hidden lg:block text-indigo-500 text-5xl fixed bottom-2 left-8 mt-16 z-index-100">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -146,10 +168,20 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 place-items-center px-4 lg:px-10 pt-10  ">
           <video
-            src={ticVideo}
-            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-150 rounded-lg shadow-lg mb-4"
+            src={netflixvid}
+            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg mb-4"
             controls
-            autoPlay
+            loop
+            muted
+            playsInline
+            height="400px"
+            width="400px"
+          ></video>
+
+          <video
+            src={teslavid}
+            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg mb-4"
+            controls
             loop
             muted
             playsInline
@@ -159,9 +191,8 @@ const Home = () => {
 
           <video
             src={ticVideo}
-            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-150 rounded-lg shadow-lg mb-4"
+            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg mb-4 "
             controls
-            autoPlay
             loop
             muted
             playsInline
@@ -170,10 +201,9 @@ const Home = () => {
           ></video>
 
           <video
-            src={ticVideo}
-            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-145 rounded-lg shadow-lg mb-4 "
+            src={amazonvid}
+            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg mb-4 "
             controls
-            autoPlay
             loop
             muted
             playsInline
@@ -182,10 +212,9 @@ const Home = () => {
           ></video>
 
           <video
-            src={ticVideo}
-            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-155 rounded-lg shadow-lg mb-4 "
+            src={airbnbvid}
+            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg mb-16"
             controls
-            autoPlay
             loop
             muted
             playsInline
@@ -194,22 +223,9 @@ const Home = () => {
           ></video>
 
           <video
-            src={ticVideo}
-            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-155 rounded-lg shadow-lg mb-16"
+            src={signupvid}
+            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg mb-16"
             controls
-            autoPlay
-            loop
-            muted
-            playsInline
-            height="400px"
-            width="400px"
-          ></video>
-
-          <video
-            src={ticVideo}
-            className=" transition-all duration-500 ease-in-out transform lg:hover:scale-155 rounded-lg shadow-lg mb-16"
-            controls
-            autoPlay
             loop
             muted
             playsInline

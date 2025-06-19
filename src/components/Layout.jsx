@@ -32,7 +32,7 @@ const Layout = () => {
         <Outlet />
       </main>
 
-      <footer className="  bg-indigo-500 text-white ">
+      <footer className="  bg-indigo-500 text-white z-10 ">
         <Footer />
       </footer>
     </div>
