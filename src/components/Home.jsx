@@ -59,7 +59,7 @@ const Home = () => {
           <h1 className="text-4xl sm:text-5xl font-bold text-indigo-600 mb-4">
            Tonderai Mlambo
           </h1>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+          <p className="hidden lg:block text-gray-600 text-base sm:text-lg leading-relaxed">
             I'm a passionate Front-end developer who loves building
             user-friendly, responsive, user-focused mobile and web applications
             using modern technologies like JavaScript, TypeScript, React,

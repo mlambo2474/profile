@@ -95,7 +95,7 @@ const Skills = () => {
             APIs to fetch, display, and manipulate data in real time. Whether
             working with third-party APIs (e.g., Google Maps, Stripe, Auth0) or
             custom backend services, I ensure secure, efficient communication
-            using fetch, Axios, or Apollo Client. My implementations include
+            using fetch, Axios, or Apollo Client. My implementations includen
             error handling, loading states, and data caching for reliability and
             performance. Examples of API Work: User authentication (JWT, OAuth)
             Dynamic content loading (e.g., blogs, notes) Real-time updates
