@@ -97,7 +97,7 @@ const Contacts = () => {
           className="w-full h-100  rounded-lg shadow-lg"
         />
 
-        <h1 className="text-8xl absolute font-bold text-indigo-500">
+        <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
           Contact me
         </h1>
         {/* If you want it on top, wrap in a relative and use absolute: */}

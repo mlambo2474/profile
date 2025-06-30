@@ -9,8 +9,8 @@ const Header = () => {
 
    
 
-  const navItems = ["/", "skills", "about", "projects", "contact"];
-  const labels = ["Home", "Services", "About", "Projects", "Contact"];
+  const navItems = ["/", "skills", "about", "contact"];
+  const labels = ["Home", "Services", "About", "Contact"];
 
   return (
     <div className={` w-full transition-colors duration-300  `}>

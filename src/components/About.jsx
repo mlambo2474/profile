@@ -56,7 +56,7 @@ const AboutMe = () => {
           className="w-full h-100  rounded-lg shadow-lg"
         />
 
-        <h1 className="text-8xl absolute font-bold text-indigo-500">
+        <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
           About me
         </h1>
         {/* If you want it on top, wrap in a relative and use absolute: */}
@@ -70,7 +70,7 @@ const AboutMe = () => {
           transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
         >
           <p className="text-xl sm:text-4xl  lg:text-[48px] font-bold pb-4 text-gray-600 text-center ">
-            About me
+           Tonderai
           </p>
           <div className="bg-purple-200 rounded-lg w-full max-w-xs mx-auto lg:mx-0 lg:mb-4">
             <img src={image} alt="" className="w-full h-auto rounded-lg" />
@@ -105,7 +105,7 @@ const AboutMe = () => {
                 onClick={() => handleClick(tab)}
                 className={`cursor-pointer ${
                   isActive === tab
-                    ? "border-b-2 border-purple-400 text-purple-500"
+                    ? "border-b-2 border-purple-400 text-purple-500 "
                     : ""
                 }`}
               >
@@ -116,7 +116,7 @@ const AboutMe = () => {
 
           {/* Conditional Sections */}
           {education && (
-            <div className="mt-4">
+            <div className="my-4">
               <h5 className="text-sm font-bold text-indigo-600">
                 Zaio Institute of Technology
               </h5>
@@ -129,7 +129,7 @@ const AboutMe = () => {
           )}
 
           {skills && (
-            <div className="mt-4">
+            <div className="my-4">
               <h5 className="text-sm font-bold text-indigo-600">
                 Technical skills and tools
               </h5>
@@ -166,7 +166,7 @@ const AboutMe = () => {
           )}
 
           {refference && (
-            <div className="mt-4">
+            <div className="my-4">
               <p className="text-md text-indigo-600">
                 Akhil Boddu (Zaio Instructor):
                 <br />

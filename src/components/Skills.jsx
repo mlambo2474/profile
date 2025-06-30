@@ -32,11 +32,12 @@ const Skills = () => {
           className="w-full h-100  rounded-lg shadow-lg"
         />
 
-        <h1 className="text-8xl absolute font-bold text-indigo-500">
+        <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
           Services
         </h1>
         {/* If you want it on top, wrap in a relative and use absolute: */}
       </motion.div>
+
         <motion.div 
       initial ={{ opacity: 0, y:70}}
       animate ={{ opacity:1, y:0}}
@@ -46,11 +47,11 @@ const Skills = () => {
         <img
           src="https://static.vecteezy.com/system/resources/previews/017/377/541/non_2x/front-end-development-minimal-infographic-banner-vector.jpg"
           alt=""
-          className="w-full h-100  rounded-lg shadow-lg"
+          className="w-full h-60 lg:h-100  rounded-lg lg:px-10 "
         />
       </motion.div>
 
-      <div className=" grid grid-cols-2 gap-4 mx-4 grid-cols-auto-fit pt-36 pb-28">
+      <div className="flex flex-col lg:grid grid-cols-2 gap-4 mx-4 grid-cols-auto-fit pt-36 pb-28">
         <div className="row-span-2 bg-pink-500 text-center content-center align-left">
           <h1 className="font-bold text-xl text-indigo-600 ">
             {" "}
@@ -111,20 +112,7 @@ const Skills = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
         >
-          {/* <div className="relative  h-92 group overflow-hidden rounded-lg shadow-lg mx-12 my-4 lg:mt-12">
-          <img src={uxImage} alt="" className="h-92 w-48  rounded-lg" />
-          <div className=" absolute bottom-0 right-0 h-full w-52 bg-purple-800/60 text-white font-bold text-md flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
-            <span>Layouts</span>
-            <span>Colors</span>
-            <span>Typography</span>
-            <span className="pb-2"> visuals</span>
-            <br />
-            <span>Navigation flow</span>
-            <span>Ease of use</span>
-            <span>Accessibility</span>
-            <span>User satisfaction</span>
-          </div>
-        </div> */}
+      
           <div className="relative  h-92 group overflow-hidden rounded-lg shadow-lg mx-12 my-4 lg:mt-12">
             <img src={uxImage} alt="" className="h-92 w-48  rounded-lg" />
             <div className="absolute bottom-0 right-0 h-full w-52 bg-purple-800/60 text-white font-bold text-md flex flex-col items-center justify-center translate-y-full transition-transform duration-500 ease-in-out animate-upDown group-hover:animate-none group-hover:translate-y-0">
@@ -172,9 +160,9 @@ const Skills = () => {
         </h1>
         <p className="  w-full text-center text-white mt-2 mb-8 px-4 lg:px-48 flex items-center justify-center">
           I craft visually stunning, maintainable UIs using modern CSS
-          methodologies like BEM, CSS-in-JS (Styled Components, Emotion), and
+          methodologies like CSS-in-JS (Styled Components, Emotion), and
           utility-first frameworks (Tailwind CSS). My workflow includes
-          Sass/SCSS for preprocessing and CSS variables for theming, ensuring
+           CSS variables for theming, ensuring
           consistency across projects. I also adopt component-based design
           systems to streamline collaboration with designers. Tools & Workflow:
           CSS Frameworks: Tailwind, Bootstrap (customized) Design Handoff:
