@@ -114,7 +114,7 @@ const Skills = () => {
         >
       
           <div className="relative  h-92 group overflow-hidden rounded-lg shadow-lg mx-12 my-4 lg:mt-12">
-            <img src={uxImage} alt="" className="h-92 w-48  rounded-lg" />
+            <img src={uxImage} alt="" className=" h-92 w-48  rounded-lg" />
             <div className="absolute bottom-0 right-0 h-full w-52 bg-purple-800/60 text-white font-bold text-md flex flex-col items-center justify-center translate-y-full transition-transform duration-500 ease-in-out animate-upDown group-hover:animate-none group-hover:translate-y-0">
               <span>Layouts</span>
               <span>Colors</span>

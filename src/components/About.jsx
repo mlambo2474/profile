@@ -131,15 +131,17 @@ const AboutMe = () => {
           {skills && (
             <div className="my-4">
               <h5 className="text-sm font-bold text-indigo-600">
-                Technical skills and tools
+               Languages
               </h5>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
                 {[
-                  "HTML5, CSS3, JavaScript",
+                  "HTML5",
+                  "CSS3",
+                  "JavaScript",
                   "React",
+                  "Redux",
                   "Tailwind",
                   "TypeScript",
-                  "Responsive Design",
                   "Git, GitHub",
                 ].map((skill) => (
                   <h5 key={skill} className="text-sm font-bold text-gray-600">
@@ -148,14 +150,17 @@ const AboutMe = () => {
                 ))}
               </div>
               <h5 className="text-sm pt-4 font-bold text-indigo-600">
-                Soft skills
+              Tools
               </h5>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
                 {[
-                  "Problem-solving",
-                  "Communication",
-                  "Attention to detail",
-                  "Collaboration",
+                  "Git",
+                  "GitHub",
+                  "Netlify",
+                  "Render",
+                  "npm",
+                  "Axios",
+                  "DevTools"
                 ].map((skill) => (
                   <h5 key={skill} className="text-sm font-bold text-gray-600">
                     {skill}

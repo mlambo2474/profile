@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const TypewriterHeading = () => {
   const phrases = [
+    "Hello there!",
     "I'm Tonderai Mlambo",
     "I am a Web Designer",
     "I am a Front-end Developer",
@@ -50,14 +51,21 @@ const TypewriterHeading = () => {
       <h1 className="text-2xl sm:text-5xl font-bold text-indigo-600 mb-4">
         {displayedText}
         {/* <span className="animate-pulse">|</span> */}
-        <span className="inline-block w-[2px] h-8 bg-indigo-600 animate-blink ml-1"></span>
+        <span className="inline-block w-[2px] h-9 bg-indigo-600 animate-blink ml-1"></span>
 
       </h1>
        <p className="hidden lg:block text-gray-600 text-base sm:text-lg leading-relaxed">
               I'm a passionate Front-end developer who loves building
               user-friendly, responsive, user-focused mobile and web
-              applications using modern technologies like HTML, CSS, JavaScript,
-              TypeScript, Tailwind, and React. I enjoy turning ideas into clean,
+              applications using  <br />
+              <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">HTML</span>
+               <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">CSS</span>
+                <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">JavaScript</span>
+               <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">TypeScript</span>
+               <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">Tailwind</span>
+               <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">React</span> 
+             <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">Redux</span><br />
+             With these modern technologies I enjoy turning ideas into clean,
               efficient code and constantly learning new tools to level up my
               craft.
             </p>

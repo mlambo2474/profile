@@ -1,5 +1,4 @@
 import ProjectCard from "./ProjectCard";
-
 import ticVideo from "../assets/ticvideo.mp4";
 import amazonvid from "../assets/amazon.mp4";
 import teslavid from "../assets/tesalvid.mp4";
@@ -45,7 +44,7 @@ export const projects = [
     tags: ["React", "CSS", "Stripe", "Firebase"],
     src: amazonvid,
     type: "video",
-    visitLink: "",
+    visitLink: "https://app-6078f.web.app/home",
     codeLink: "https://github.com/mlambo2474/amazon-clone",
   },
   {
@@ -53,7 +52,7 @@ export const projects = [
     tags: ["React", "CSS", "Redux", "Firebase"],
     src: airbnbvid,
     type: "video",
-    visitLink: "https://github.com/mlambo2474/airbnb-clone",
+    visitLink: "https://airbnb-clone-xoqd.onrender.com/",
     codeLink: "https://github.com/mlambo2474/airbnb-clone",
   },
   {
