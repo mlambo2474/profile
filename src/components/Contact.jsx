@@ -34,7 +34,7 @@ const Contacts = () => {
   // const [isSending, setIsSending] = useState(false);
 
     const downloadCV = async () => {
-      const cvRef = ref(storage, 'resume@tonderaimlambo.pdf');
+      const cvRef = ref(storage, 'frontEndResume.pdf');
       const url = await getDownloadURL(cvRef);
       window.open(url, '_blank');
     };
