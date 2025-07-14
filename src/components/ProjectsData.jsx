@@ -11,6 +11,7 @@ import clock from "../assets/digitalClock.png"
 import mathsApp from "../assets/mathsImage.png"
 import twitter from "../assets/Xx.jpeg";
 import youtube from "../assets/youtube.jpg";
+import todo from "../assets/todo-list-javascriptapp.png";
 
 
 export const projects = [
@@ -112,6 +113,14 @@ export const projects = [
     visitLink: "https://zaio-youtube-clone-html-css-only.netlify.app/",
     codeLink: "https://github.com/mlambo2474/Zaio-Youtube-Clone",
   },
-
-  // Add the rest...
+,
+   {
+    title: "Todo-list",
+    tags: ["HTML", "CSS", "JavaScript"],
+    src: todo,
+    type: "image",
+    visitLink: "https://zaio-youtube-clone-html-css-only.netlify.app/",//this link is not correct, update it later
+    codeLink: "https://github.com/mlambo2474/todo-list",
+  },
+  
 ];
