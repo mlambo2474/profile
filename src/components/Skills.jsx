@@ -46,12 +46,12 @@ const Skills = () => {
       >
         <img
           src="https://static.vecteezy.com/system/resources/previews/017/377/541/non_2x/front-end-development-minimal-infographic-banner-vector.jpg"
-          alt="a header background of the header"
+          alt="a background image of the header "
           className="w-full h-60 lg:h-100  rounded-lg lg:px-10 "
         />
       </motion.div>
 
-      <div className="flex flex-col lg:grid  gap-4 mx-4 grid-cols-auto-fit pt-36 pb-28">
+      <div className="flex flex-col lg:grid grid-cols-2 gap-4 mx-4 grid-cols-auto-fit pt-36 pb-28">
         <div className="row-span-2 bg-pink-500 text-center content-center align-left">
           <h1 className="font-bold text-xl text-indigo-600 ">
             {" "}
