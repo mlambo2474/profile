@@ -13,3 +13,22 @@ html, body {
   0%, 100% { transform: translateY(100%); }
   50% { transform: translateY(0%); }
 }
+
+/* Ensure project videos fit the screen when in fullscreen */
+.project-video:fullscreen,
+.project-video:-webkit-full-screen,
+.project-video:-moz-full-screen,
+.project-video:-ms-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  background-color: #000; /* eliminate letterboxing artifacts */
+}
+
+/* Optional: base video styling to avoid overflow within card */
+.project-video {
+  max-width: 100%;
+  height: auto;
+}

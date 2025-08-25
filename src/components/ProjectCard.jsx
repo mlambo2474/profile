@@ -7,7 +7,7 @@ const ProjectCard = ({ title, tags, src, type, visitLink, codeLink }) => {
         {type === "video" ? (
           <video
             src={src}
-            className="transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg"
+            className="transition-all duration-500 ease-in-out transform  rounded-lg shadow-lg"
             controls
             loop
             muted

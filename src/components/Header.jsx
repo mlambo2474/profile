@@ -4,7 +4,25 @@ import { MdMenu } from "react-icons/md";
 
 const Header = () => {
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); 
+  const [textColor, setTextColor] = useState("text-indigo-500");
+
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 70) {
+        // setBgColor("bg-indigo-500");
+        setTextColor("text-pink-100");
+      } else {
+        // setBgColor("bg-purple-300");
+        setTextColor("text-indigo-500");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
 
    
@@ -15,7 +33,7 @@ const Header = () => {
   return (
     <div className={` w-full transition-colors duration-300  `}>
       <div className="flex h-16 items-center justify-between px-4 lg:px-8">
-        <div className="flex flex-col text-white text-xs sm:text-sm">
+        <div className={`flex flex-col ${textColor} text-xs sm:text-sm`}>
           <p>generaltonde@gmail.com</p>
           <p>+27 61 310 1642</p>
         </div>

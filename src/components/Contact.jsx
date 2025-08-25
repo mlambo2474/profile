@@ -94,7 +94,7 @@ const Contacts = () => {
         <img
           src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
           alt="header"
-          className="w-full h-100  rounded-lg shadow-lg"
+          className="w-full h-50  rounded-lg shadow-lg"
         />
 
         <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">

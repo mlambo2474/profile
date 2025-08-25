@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import image from "../assets/about.png";
 import { motion } from "framer-motion";
+import Icons from "./Icons"
+
 
 const AboutMe = () => {
   const [education, setEducation] = useState(true);
@@ -45,6 +47,7 @@ const AboutMe = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4">
+
            <motion.div 
       initial ={{ opacity: 0, y:-70}}
       animate ={{ opacity:1, y:0}}
@@ -53,7 +56,7 @@ const AboutMe = () => {
         <img
           src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
           alt="header"
-          className="w-full h-100  rounded-lg shadow-lg"
+          className="w-full h-50  rounded-lg shadow-lg"
         />
 
         <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
@@ -88,15 +91,17 @@ const AboutMe = () => {
             I'm a passionate front-end developer with a strong foundation in
             HTML, CSS, JavaScript and React, recently completing my front-end
             development course. I enjoy creating responsive, user-friendly
-            websites and am constantly exploring other modern frameworks like
-            Angular to enhance my skills. With a keen eye for design and a love
+            websites and am constantly exploring other modern technologies like
+            Typescript and Next.js to enhance my skills. With a keen eye for design and a love
             for clean, efficient code, I aim to build engaging digital
-            experiences that make an impact. When I'm not coding, you'll find me
-            experimenting with new web technologies or contributing to
-            open-source projects. Let's connect and build something amazing
-            together!
+            experiences that make an impact.I am currently doing Backend development to fully equip
+            myself in full Stack web development as I have already done Node.js and Express.js and
+             doing MongoDB for databases. I am looking forward to extend my skills in 
+             AI Automation that is building LLM Apps & AI-Agents with n8n & APIs to become 
+             a Full Stack + AI Automation Engineer and helping businesses grow faster and generating revenue.
+          
           </p>
-
+          
           {/* Tabs */}
           <div className="text-gray-600 mt-4 font-bold text-sm flex flex-wrap gap-x-6 gap-y-2">
             {["education", "skills", "experience", "refference"].map((tab) => (
@@ -172,24 +177,34 @@ const AboutMe = () => {
 
           {refference && (
             <div className="my-4">
-              <p className="text-md text-indigo-600">
+              <p className="text-md font-bold text-indigo-600">
                 Akhil Boddu (Zaio Instructor):
                 <br />
-                <span className="font-bold text-gray-600">
-                  akhil4mara@gmail.com
+                <span className="text-gray-600 font-normal">
+                  akhil4mara@gmail.com <br/>
+                  akhil@zaio.io
                 </span>
               </p>
-              <p className="text-md text-indigo-600 mt-4">
+              <p className="text-md font-bold text-indigo-600 mt-4">
                 Ulli Haw (Prev Employer):
                 <br />
-                <span className="font-bold text-gray-600">
+                <span className="text-gray-600 font-normal">
                   ulli@westwoods.co.za
+                </span>
+              </p>
+              <p className="text-md font-bold text-indigo-600 mt-4">
+                Asif Hassam (Zaio Co-Founder):
+                <br />
+                <span className="text-gray-600 font-normal">
+                  asif@zaio.io
                 </span>
               </p>
             </div>
           )}
         </motion.div>
       </div>
+
+      <div>  <Icons /></div>
     </div>
   );
 };

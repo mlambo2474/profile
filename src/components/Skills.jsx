@@ -29,7 +29,7 @@ const Skills = () => {
         <img
           src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
           alt="header"
-          className="w-full h-100  rounded-lg shadow-lg"
+          className="w-full h-50  rounded-lg shadow-lg"
         />
 
         <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
@@ -86,9 +86,9 @@ const Skills = () => {
             Integration with backend APIs for real-time data
           </p>
         </div>
-        <div className="bg-black text-center content-center align-left">
+        <div className="bg-lime-500 text-center content-center align-left">
           {" "}
-          <h1 className="font-bold text-xl text-indigo-400">
+          <h1 className="font-bold text-xl text-indigo-600">
             API Integration{" "}
           </h1>
           <p className="text-center text-white my-2 px-4 ">
