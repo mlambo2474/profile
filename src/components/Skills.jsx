@@ -3,7 +3,7 @@ import uxImage from "../assets/designer3.JPG";
 import devImage from "../assets/designer2.png";
 import webImage from "../assets/designer6.png";
 import { motion } from "framer-motion";
-import Overlay from "./Overlay";
+// import Overlay from "./Overlay";
 
 const Skills = () => {
   const [uiImage, setUiImage] = useState(false);
@@ -46,12 +46,12 @@ const Skills = () => {
       >
         <img
           src="https://static.vecteezy.com/system/resources/previews/017/377/541/non_2x/front-end-development-minimal-infographic-banner-vector.jpg"
-          alt=""
+          alt="a header background of the header"
           className="w-full h-60 lg:h-100  rounded-lg lg:px-10 "
         />
       </motion.div>
 
-      <div className="flex flex-col lg:grid grid-cols-2 gap-4 mx-4 grid-cols-auto-fit pt-36 pb-28">
+      <div className="flex flex-col lg:grid  gap-4 mx-4 grid-cols-auto-fit pt-36 pb-28">
         <div className="row-span-2 bg-pink-500 text-center content-center align-left">
           <h1 className="font-bold text-xl text-indigo-600 ">
             {" "}
@@ -72,7 +72,7 @@ const Skills = () => {
         <div className="bg-sky-600 text-center content-center p-2">
           <h1 className="font-bold text-xl text-indigo-800">
             {" "}
-            Responsive Design
+            Dynamic Single Page Apps
           </h1>
           <p className="text-center text-white mt-2">
             2. I develop fast, dynamic Single Page Applications (SPAs) using
@@ -96,7 +96,7 @@ const Skills = () => {
             APIs to fetch, display, and manipulate data in real time. Whether
             working with third-party APIs (e.g., Google Maps, Stripe, Auth0) or
             custom backend services, I ensure secure, efficient communication
-            using fetch, Axios, or Apollo Client. My implementations includen
+            using fetch, Axios, or Apollo Client. My implementations include
             error handling, loading states, and data caching for reliability and
             performance. Examples of API Work: User authentication (JWT, OAuth)
             Dynamic content loading (e.g., blogs, notes) Real-time updates
@@ -153,7 +153,7 @@ const Skills = () => {
         </motion.div>
       )}
 
-      <div className="bg-teal-950 text-center content-center align-left m-4 p-8">
+      <div className="bg-teal-950 text-center content-center  m-4 p-8">
         {" "}
         <h1 className="font-bold text-xl text-indigo-400">
           Responsive Styling & Modern Tools
