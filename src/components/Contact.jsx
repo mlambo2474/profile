@@ -34,55 +34,12 @@ const Contacts = () => {
   // const [isSending, setIsSending] = useState(false);
 
     const downloadCV = async () => {
-      const cvRef = ref(storage, 'frontEndResume.pdf');
+      const cvRef = ref(storage, 'tonderaimlambo.pdf');
       const url = await getDownloadURL(cvRef);
       window.open(url, '_blank');
     };
 
-  //   //handling changes in the input fields
-  //   const handleChange = (e) => {
-  //     const {name, value} = e.target;
-  //     setFormData((prev) =>({
-  //       ...prev,
-  //       [name] : value,
-  //     }))
-  //   };
-
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     setIsSending(true);
-
-  //     try{
-  //        await emailjs.send(
-  //         "service_jt4jq5a",
-  //          "template_dzv8ea6",
-  //         {
-  //           name: formData.name,
-  //           subject: `A new message from ${formData.name} from Portfolio  Contact form`,
-  //           email: formData.email,
-  //           message: formData.message,
-  //         },
-  //         "d9qUvD0CuTUau776d"
-  //        );
-  //        alert("Message sent successfully");
-  //        setFormData({ name:"", email:"", message:"" })
-  //     }catch(error){
-  //     console.error("Error sending message", error);
-  //     alert("Failed to send message. Please try again later.");
-  //     } finally {
-  //       setIsSending(false);
-  //     }
-
-  //     // try{
-  //     //   await axios.post("https://us-central1-profile-fe6e3.cloudfunctions.net/sendContactEmail", formData);
-  //     //   alert("Message sent successfully");
-  //     //   //clear the form for next submission
-  //     //   setFormData({name:"", email:"", message:""})
-  //     // }catch(error){
-  //     //     console.error("Error sending message:", error);
-  //     //     alert("Failed to send message.Please try again later.")
-  //     // }
-  //   };
+  
 
   return (
     <>
