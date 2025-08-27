@@ -12,6 +12,8 @@ import mathsApp from "../assets/mathsImage.png"
 import twitter from "../assets/Xx.jpeg";
 import youtube from "../assets/youtube.jpg";
 import todo from "../assets/todo-list-javascriptapp.png";
+import carSale from "../assets/carsaleimage.png";
+import restaurant from "../assets/award4.jpg"
 
 
 export const projects = [
@@ -64,6 +66,23 @@ export const projects = [
     visitLink: "https://luminous-cat-a6d705.netlify.app/",
     codeLink: "https://github.com/mlambo2474/login-form",
   },
+     {
+    title: "Carsale",
+    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Express.js"],
+    src: carSale,
+    type: "image",
+    visitLink: "https://carsale-dealership.onrender.com/",
+    codeLink: "https://github.com/mlambo2474/carsale_dealership",
+  },
+     {
+    title: "Restaurant",
+    tags: ["React", "Tailwind", "...."],
+    src: restaurant,
+    type: "image",
+    visitLink: "https://grilledsteak-1.onrender.com/",
+    codeLink: "https://github.com/mlambo2474/grilledSteak",
+  },
+
    {
     title: "Instagram",
     tags: ["HTML", "CSS", "JavaScript", "Firebase"],
@@ -119,7 +138,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     src: todo,
     type: "image",
-    visitLink: "https://zaio-youtube-clone-html-css-only.netlify.app/",//this link is not correct, update it later
+    visitLink: "https://todo-list-teal-eta.vercel.app/",
     codeLink: "https://github.com/mlambo2474/todo-list",
   },
   

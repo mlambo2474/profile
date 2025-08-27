@@ -130,6 +130,12 @@ const AboutMe = () => {
                 University of London Goldsmiths
               </h5>
               <p className="text-sm text-gray-600">Web Design</p>
+                 <h5 className="text-sm font-bold pt-2 text-indigo-600">
+                Udemy <span className="text-normal">(learning in progress)</span>
+              </h5>
+              <p className="text-sm text-gray-600">Backend Development</p>
+             <p className="text-sm text-gray-600">AI Automation: Build LLM Apps & AI-Agents with n8n & APIs</p>
+
             </div>
           )}
 
@@ -185,6 +191,13 @@ const AboutMe = () => {
                   akhil@zaio.io
                 </span>
               </p>
+                 <p className="text-md font-bold text-indigo-600 mt-4">
+                Asif Hassam (Zaio Co-Founder):
+                <br />
+                <span className="text-gray-600 font-normal">
+                  asif@zaio.io
+                </span>
+              </p>
               <p className="text-md font-bold text-indigo-600 mt-4">
                 Ulli Haw (Prev Employer):
                 <br />
@@ -193,10 +206,10 @@ const AboutMe = () => {
                 </span>
               </p>
               <p className="text-md font-bold text-indigo-600 mt-4">
-                Asif Hassam (Zaio Co-Founder):
+                Michael Brain(Sengamedi Properties):
                 <br />
                 <span className="text-gray-600 font-normal">
-                  asif@zaio.io
+                  micheal@tridentpress.co.za
                 </span>
               </p>
             </div>
