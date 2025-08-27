@@ -68,7 +68,7 @@ export const projects = [
   },
      {
     title: "Carsale",
-    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Express.js"],
+    tags: ["HTML","CSS", "JS", "Node.js", "Express.js"],
     src: carSale,
     type: "image",
     visitLink: "https://carsale-dealership.onrender.com/",

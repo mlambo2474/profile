@@ -7,19 +7,19 @@ const ProjectCard = ({ title, tags, src, type, visitLink, codeLink }) => {
         {type === "video" ? (
           <video
             src={src}
-            className="transition-all duration-500 ease-in-out transform  rounded-lg shadow-lg"
+            className="w-80 h-40 transition-all duration-500 ease-in-out transform  rounded-lg shadow-lg"
             controls
             loop
             muted
             playsInline
-            width="400px"
+            
           />
         ) : (
           <img
             src={src}
             alt={title}
-            className="transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg"
-            width="300px"
+            className="w-80 h-40 transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg"
+            
           />
         )}
       </div>
@@ -32,7 +32,7 @@ const ProjectCard = ({ title, tags, src, type, visitLink, codeLink }) => {
             key={index}
             className="bg-purple-50 font-bold text-purple-500 rounded-lg px-1 py-1 mx-1 my-2"
           >
-            #{tag}
+            {tag}
           </span>
         ))}
       </div>
