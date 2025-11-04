@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <div className={` w-full transition-colors duration-300  `}>
-      <div className="flex h-16 items-center justify-between px-4 lg:px-8">
+      <div className="flex h-16 items-center justify-between px-4 lg:px-8 max-w-7xl mx-auto mt-2 mb-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-md">
         <div className={`flex flex-col ${textColor} text-xs sm:text-sm hover:text-white`}>
           <p>generaltonde@gmail.com</p>
           <p>+27 61 310 1642</p>

@@ -155,8 +155,8 @@ const Home = () => {
       </motion.div>
 
       {/* Description Section */}
-      <div className="flex justify-center items-center py-16 bg-gray-50">
-        <p className="text-gray-600 lg:hidden sm:text-lg text-center leading-relaxed max-w-4xl px-4">
+      <div className="flex justify-center lg:hidden items-center py-16 bg-gray-50">
+        <p className="text-gray-600  sm:text-lg text-center leading-relaxed max-w-4xl px-4">
           I'm a passionate Front-end developer who loves building user-friendly,
           responsive, user-focused mobile and web applications using modern technologies like <br />
           <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">HTML</span>
