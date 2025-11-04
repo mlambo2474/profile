@@ -4,7 +4,7 @@ import { MdMenu } from "react-icons/md";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false); 
   const [textColor, setTextColor] = useState("text-indigo-500");
-  const [bgColor, setBgColor] = useState("bg-purple-300/70");
+  const [bgColor, setBgColor] = useState("bg-indigo-700/70");
 
   
   useEffect(() => {
