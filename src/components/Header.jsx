@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 
 const Header = () => {
-  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false); 
   const [textColor, setTextColor] = useState("text-indigo-500");
+  const [bgColor, setBgColor] = useState("bg-purple-300/70");
 
   
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 70) {
-        // setBgColor("bg-indigo-500");
         setTextColor("text-pink-100");
       } else {
-        // setBgColor("bg-purple-300");
         setTextColor("text-indigo-500");
       }
     };
@@ -24,10 +21,14 @@ const Header = () => {
     };
   }, []);
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
-   
-
-  const navItems = ["/", "skills", "about", "contact"];
+  const navItems = ["home", "skills", "about", "contact"];
   const labels = ["Home", "Services", "About", "Contact"];
 
   return (
@@ -38,27 +39,20 @@ const Header = () => {
           <p>+27 61 310 1642</p>
         </div>
 
-        <div className="hidden lg:flex items-center font-bold">
-          {navItems.map((path, index) => (
-            <NavLink
-              key={path}
-              to={path === "/" ? "/" : `${path}`}
-              className={({ isActive }) =>
-                `px-2 py-1 mx-2 cursor-pointer transition duration-300 easeOut border-b-2
-                ${
-                  isActive
-                    ? "border-white text-white"
-                    : "border-transparent hover:text-indigo-500 hover:bg-pink-300 rounded-lg"
-                }`
-              }
+        <div className="hidden md:flex lg:flex items-center font-bold">
+          {navItems.map((id, index) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`px-2 py-1 mx-2 cursor-pointer transition duration-300 easeOut border-b-2 border-transparent hover:text-indigo-500 hover:bg-pink-300 rounded-lg`}
             >
               {labels[index]}
-            </NavLink>
+            </button>
           ))}
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="block lg:hidden">
+        <div className="block md:hidden lg:hidden">
           <MdMenu
             className="text-3xl cursor-pointer rounded-full hover:text-pink-200"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -66,27 +60,28 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Sidebar Menu */}
       {menuOpen && (
-        <div className="flex flex-col items-start px-4 pt-2 pb-4 bg-pink-100 lg:hidden shadow-lg z-50">
-          {navItems.map((path, index) => (
-            <NavLink
-              key={path}
-              to={path === "/" ? "/" : `${path}`}
-              onClick={() => setMenuOpen(false)} // close menu on click
-              className={({ isActive }) =>
-                `block w-full px-2 py-2 text-sm text-center font-medium transition duration-300 border-b border-gray-200
-                ${
-                  isActive
-                    ? "text-indigo-400"
-                    : "text-indigo-400 hover:text-indigo-700 hover:bg-pink-300 rounded-lg"
-                }`
-              }
-            >
-              {labels[index]}
-            </NavLink>
-          ))}
-        </div>
+        <>
+          {/* Overlay to close sidebar on outside click */}
+          <div
+            className="fixed inset-0 bg-black/30 lg:hidden z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className={`fixed top-0 right-0 h-full w-1/2 ${bgColor} lg:hidden shadow-lg z-50`}>
+            <div className="flex flex-col items-start px-4 pt-4 pb-6">
+              {navItems.map((id, index) => (
+                <button
+                  key={id}
+                  onClick={() => { scrollToSection(id); setMenuOpen(false); }}
+                  className={`block w-full px-2 py-2 text-sm text-left font-medium transition duration-300 border-b border-gray-200 text-white hover:text-indigo-700 hover:bg-pink-300 rounded-lg`}
+                >
+                  {labels[index]}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

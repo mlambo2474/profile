@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col text-xs text-white p-4 ">
-          <span>tondev&copy;</span>
+          <span> Developed by tondev&copy;</span>
           <span>All rights reserved { currentYear}</span>
           <span>generaltonde@gmail.com</span>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate} from 'react-router-dom'
+import { supabase } from '../../supabase/supabase'
 import Button from "./Button";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -7,39 +7,95 @@ import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
-import { storage } from "../firebase";
-import { ref, getDownloadURL } from "firebase/storage";
-// import emailjs from "@emailjs/browser";
-import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
-// import axios from "axios";
 
 const Contacts = () => {
-  const navigate = useNavigate();
-  const [state, handleSubmit] = useForm("xwpoakaj"); // Replace with your Formspree form ID
+  const [loading, setLoading] = useState(false)
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [success, setSuccess] = useState(false);
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
  
-  if (state.succeeded) {
-    return alert("Message sent successfully"), navigate('/');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccess(false);
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "https://mlpgmncacnuafbiyahux.supabase.co/functions/v1/contact-form",
+        {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json",
+            "apikey": import.meta.env.VITE_SUPABASE_ANON_KEY, // ✅ required
+           },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        setSuccess(true);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+  const handleDownload = async () => {
+    setLoading(true)
+    try {
+      const { data, error } = await supabase.storage
+        .from('resumes')
+        .download('tmlambo(1).pdf') // Replace with your actual file name
+
+      if (error) throw error
+
+      // Create blob URL for both download and preview
+      const url = URL.createObjectURL(data)
+      
+      // Download the file
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'tmlambo(1).pdf' // Custom filename for user
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      
+      // Open in new tab for preview
+      const newWindow = window.open('', '_blank')
+      if (newWindow) {
+        newWindow.location.href = url
+        // Clean up the URL after a delay to allow the new tab to load
+        setTimeout(() => {
+          URL.revokeObjectURL(url)
+        }, 1000)
+      } else {
+        // Fallback if popup was blocked
+        URL.revokeObjectURL(url)
+        alert('Please allow popups to preview the resume')
+      }
+    } catch (error) {
+      console.error('Download failed:', error)
+      alert('Download failed. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
-    
-  
-
-  //   const [formData, setFormData] = useState({
-  //     name: "",
-  //     email: "",
-  //     message: "",
-  //   });
-
-  // const [isSending, setIsSending] = useState(false);
-
-    const downloadCV = async () => {
-      const cvRef = ref(storage, 'tonderaimlambo.pdf');
-      const url = await getDownloadURL(cvRef);
-      window.open(url, '_blank');
-    };
-
-  
+  //firebase storage for cv download
+    // const downloadCV = async () => {
+    //   const cvRef = ref(storage, 'tonderaimlambo.pdf');
+    //   const url = await getDownloadURL(cvRef);
+    //   window.open(url, '_blank');
+    // };
 
   return (
     <>
@@ -48,16 +104,19 @@ const Contacts = () => {
       animate ={{ opacity:1, y:0}}
       transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
       className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
-        <img
-          src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
-          alt="header"
-          className="w-full h-50  rounded-lg shadow-lg"
-        />
-
-        <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
-          Contact me
-        </h1>
-        {/* If you want it on top, wrap in a relative and use absolute: */}
+        <div className="inline-block text-center">
+          <h1 className=" text-4xl lg:text-6xl font-bold text-purple-500">
+            Lets Connect
+          </h1>
+          <motion.div
+            className="w-3/4 mx-auto h-1 bg-indigo-500 rounded-full mt-2"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            style={{ originX: 0.5 }}
+          />
+        </div>
       </motion.div>
       <div className="w-full flex justify-center items-center  snap-start px-4">
       
@@ -69,20 +128,26 @@ const Contacts = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
          >
-          <h1 className="text-4xl lg:text-[50px] font-bold text-gray-600 mb-10 ">
-            Lets Connect
+          <h1 className="text-4xl lg:text-[30px] font-bold text-gray-600 mb-10 ">
+             Contact Details
           </h1>
 
-          <div className="flex flex-col font-medium text-gray-600 space-y-4">
-            <div className="flex items-center">
+          <motion.div
+            className="flex flex-col font-medium text-gray-600 space-y-4"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } } }}
+          >
+            <motion.div className="flex items-center" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
               <MdEmail className="w-6 h-6 text-purple-500 mr-2 hover:text-purple-800 cursor-pointer" />
               generaltonde@gmail.com
-            </div>
-            <div className="flex items-center">
+            </motion.div>
+            <motion.div className="flex items-center" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
               <FaPhone className="w-5 h-6 text-purple-500 mr-2 hover:text-purple-800 cursor-pointer" />
               +27613101642
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           <div className="flex mt-6 space-x-5">
           
@@ -113,7 +178,12 @@ const Contacts = () => {
           </div>
 
           <div className="pt-8 pb-12">
-            <Button onClick={downloadCV}>Download CV</Button>
+            <Button 
+            onClick={handleDownload} 
+            disabled={loading}
+            >
+            {loading ? 'Downloading...' : 'Resume'}
+              </Button>
           </div>
         </motion.div>
 
@@ -127,48 +197,46 @@ const Contacts = () => {
           transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
            >
             <input
-              className="bg-purple-200 border border-gray-400 h-10 px-2 focus:outline-none"
+              className="bg-purple-200 border border-gray-400 h-10 px-2 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1 transition"
               type="text"
               placeholder="Your name"
               name="name"
-              // value={formData.name}
-              // onChange={handleChange}
+              value={formData.name}
+              onChange={handleChange}
               required
             />
-            <ValidationError prefix="Name" field="name" errors={state.errors} />
-
             <input
-              className="bg-purple-200 border border-gray-400 h-10 px-2 focus:outline-none"
+              className="bg-purple-200 border border-gray-400 h-10 px-2 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1 transition"
               type="email"
               placeholder="Email"
               name="email"
-              // value={formData.email}
-              // onChange={handleChange}
+              value={formData.email}
+              onChange={handleChange}
               required
             />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
-
             <textarea
-              className="bg-purple-200 border border-gray-400 h-28 px-2 py-1 focus:outline-none"
+              className="bg-purple-200 border border-gray-400 h-28 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1 transition"
               name="message"
               placeholder="Your message"
-              // value={formData.message}
-              // onChange={handleChange}
+              value={formData.message}
+              onChange={handleChange}
               required
             />
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-            />
-
             <div className="pt-4">
-              <Button type="submit">Submit</Button>
+              <Button type="submit">
+                {loading ? 'Sending...' : 'Submit'}
+                </Button>
             </div>
+            {success && (
+          <motion.div
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="mt-3 bg-green-500 text-white text-center py-2 rounded-md"
+          >
+            ✅ Message successfully sent!
+          </motion.div>
+        )}
           </motion.div>
         </form>
       
@@ -180,47 +248,3 @@ const Contacts = () => {
 };
 
 export default Contacts;
-
-// /******** */
-// // const { onRequest } = require("firebase-functions/v2/https");
-// const functions = require("firebase-functions");
-// // const { defineSecret } = require("firebase-functions/params");
-// // const logger = require("firebase-functions/logger");
-// const nodemailer = require("nodemailer");
-// // const cors = require("cors")({ origin: true });
-
-// const gmailEmail = functions.config().gmail.username;
-// const gmailPassword = functions.config().gmail.password;
-
-//  const transport = nodemailer.createTransport({
-//           service: "gmail",
-//           auth: {
-//             user: gmailEmail,
-//             pass: gmailPassword,
-//           },
-//         });
-
-//         const sendContactEmail = (formData) => {
-//            return transport
-//            .sendMail({
-//             from: formData.email,
-//             to: gmailEmail,
-//             subject: `New message from ${formData.name}`,
-//             text: formData.message,
-//            })
-//            .then((r) =>{
-//             console.log("accepted", r.accepted);
-//                  console.log("rejected", r.rejected);
-//            })
-//            .catch((e) => {
-//             console.log("error", e);
-//            });
-//         }
-
-//         exports. helloWorld = functions.https.onRequest((req, res) => {
-//           if(req.body.secret !== "firebaseIsGreat") {
-//             return res.send("missing secret");
-//             sendContactEmail(req.body);
-//             res.send
-//           }
-//         })

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import image from "../assets/about.png";
-import { motion } from "framer-motion";
-import Icons from "./Icons"
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const AboutMe = () => {
@@ -48,21 +47,24 @@ const AboutMe = () => {
   return (
     <div className="max-w-7xl mx-auto px-4">
 
-           <motion.div 
+      <motion.div 
       initial ={{ opacity: 0, y:-70}}
       animate ={{ opacity:1, y:0}}
       transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
       className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
-        <img
-          src="https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg"
-          alt="header"
-          className="w-full h-50  rounded-lg shadow-lg"
-        />
-
-        <h1 className=" text-6xl lg:text-8xl absolute font-bold text-indigo-500">
-          About me
-        </h1>
-        {/* If you want it on top, wrap in a relative and use absolute: */}
+        <div className="inline-block text-center">
+        <h1 className=" text-4xl lg:text-6xl font-bold text-purple-500">
+            About me
+          </h1>
+          <motion.div
+            className="w-3/4 mx-auto h-1 bg-indigo-500 rounded-full mt-2"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            style={{ originX: 0.5 }}
+          />
+        </div>
       </motion.div>
       <div className="flex flex-col lg:flex-row justify-center mt-8 px-4 lg:px-20 snap-start">
         {/* Image + Title */}
@@ -76,7 +78,24 @@ const AboutMe = () => {
            Tonderai
           </p>
           <div className="bg-purple-200 rounded-lg w-full max-w-xs mx-auto lg:mx-0 lg:mb-4">
-            <img src={image} alt="" className="w-full h-auto rounded-lg" />
+            <motion.img
+              src={image}
+              alt="Portrait of Tonderai"
+              loading="lazy"
+              className="w-full h-auto rounded-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+              whileInView={{}}
+              viewport={{ once: true }}
+              style={{}}
+            />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
           </div>
         </motion.div>
 
@@ -102,122 +121,148 @@ const AboutMe = () => {
           
           </p>
           
-          {/* Tabs */}
-          <div className="text-gray-600 mt-4 font-bold text-sm flex flex-wrap gap-x-6 gap-y-2">
+          {/* Tabs with animated underline */}
+          <div className="relative text-gray-600 mt-4 font-bold text-sm flex flex-wrap gap-x-6 gap-y-2">
             {["education", "skills", "experience", "refference"].map((tab) => (
-              <span
-                key={tab}
-                onClick={() => handleClick(tab)}
-                className={`cursor-pointer ${
-                  isActive === tab
-                    ? "border-b-2 border-purple-400 text-purple-500 "
-                    : ""
-                }`}
-              >
-                {tab.toUpperCase()}
-              </span>
+              <div key={tab} className="relative">
+                <button
+                  onClick={() => handleClick(tab)}
+                  className={`cursor-pointer ${isActive === tab ? "text-purple-500" : ""}`}
+                >
+                  {tab.toUpperCase()}
+                </button>
+                {isActive === tab && (
+                  <motion.span
+                    layoutId="aboutTabsUnderline"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-400 rounded"
+                  />
+                )}
+              </div>
             ))}
           </div>
 
           {/* Conditional Sections */}
+          <AnimatePresence mode="wait">
+          <div>
           {education && (
-            <div className="my-4">
-              <h5 className="text-sm font-bold text-indigo-600">
+            <motion.div
+              key="education"
+              className="my-4"
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } }
+              }}
+            >
+              <motion.h5 variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm font-bold text-indigo-600">
                 Zaio Institute of Technology
-              </h5>
-              <p className="text-sm text-gray-600">Front-End Engineer</p>
-              <h5 className="text-sm font-bold pt-2 text-indigo-600">
+              </motion.h5>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm text-gray-600">Front-End Engineer</motion.p>
+              <motion.h5 variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm font-bold pt-2 text-indigo-600">
                 University of London Goldsmiths
-              </h5>
-              <p className="text-sm text-gray-600">Web Design</p>
-                 <h5 className="text-sm font-bold pt-2 text-indigo-600">
+              </motion.h5>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm text-gray-600">Web Design</motion.p>
+              <motion.h5 variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm font-bold pt-2 text-indigo-600">
                 Udemy <span className="text-normal">(learning in progress)</span>
-              </h5>
-              <p className="text-sm text-gray-600">Backend Development</p>
-             <p className="text-sm text-gray-600">AI Automation: Build LLM Apps & AI-Agents with n8n & APIs</p>
-
-            </div>
+              </motion.h5>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm text-gray-600">Backend Development</motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }} className="text-sm text-gray-600">AI Automation: Build LLM Apps & AI-Agents with n8n & APIs</motion.p>
+            </motion.div>
           )}
 
           {skills && (
-            <div className="my-4">
-              <h5 className="text-sm font-bold text-indigo-600">
-               Languages
-              </h5>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
-                {[
-                  "HTML5",
-                  "CSS3",
-                  "JavaScript",
-                  "React",
-                  "Redux",
-                  "Tailwind",
-                  "TypeScript",
-                  "Git, GitHub",
-                ].map((skill) => (
-                  <h5 key={skill} className="text-sm font-bold text-gray-600">
-                    {skill}
-                  </h5>
-                ))}
-              </div>
-              <h5 className="text-sm pt-4 font-bold text-indigo-600">
-              Tools
-              </h5>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
-                {[
-                  "Git",
-                  "GitHub",
-                  "Netlify",
-                  "Render",
-                  "npm",
-                  "Axios",
-                  "DevTools"
-                ].map((skill) => (
-                  <h5 key={skill} className="text-sm font-bold text-gray-600">
-                    {skill}
-                  </h5>
-                ))}
-              </div>
-            </div>
+            <motion.div
+              key="skills"
+              className="my-4 space-y-2 text-sm text-gray-600"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } }
+              }}
+            >
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Programming Languages:</span> HTML5, CSS3, Javascript
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Frontend Development:</span> React.js, Redux, React hooks, Tailwindcss
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Backend Development:</span> Node.js, Express.js, Restful APIs, Firebase, Supabase
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Database Management:</span> MongoDB, Mongoose
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Tools and Technologies:</span> Git, npm, VScode, Trello, Agile
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">AI tools and Vibe Coding:</span> Cursor, lovable, LLMs e.g Chatgpt-5, Deepseek, Claude etc..
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Testing and Deployment:</span> Jest, React-testing-library, Github, Netlify, Vercel, Render
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Code Quality Oversight:</span> Mantainability, Scalability, Readability, Performance Optimization, Security, Documentation
+              </motion.p>
+              <motion.p variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                <span className="font-bold text-indigo-600">Soft skills:</span> Teamwork, Cross-functional collaboration, Digital marketing, Excellent communication, Problem solving
+              </motion.p>
+            </motion.div>
           )}
 
           {refference && (
-            <div className="my-4">
-              <p className="text-md font-bold text-indigo-600">
+            <motion.div
+              key="refference"
+              className="my-4"
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } }
+              }}
+            >
+              <motion.p className="text-md font-bold text-indigo-600" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
                 Akhil Boddu (Zaio Instructor):
                 <br />
                 <span className="text-gray-600 font-normal">
                   akhil4mara@gmail.com <br/>
                   akhil@zaio.io
                 </span>
-              </p>
-                 <p className="text-md font-bold text-indigo-600 mt-4">
+              </motion.p>
+              <motion.p className="text-md font-bold text-indigo-600 mt-4" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
                 Asif Hassam (Zaio Co-Founder):
                 <br />
                 <span className="text-gray-600 font-normal">
                   asif@zaio.io
                 </span>
-              </p>
-              <p className="text-md font-bold text-indigo-600 mt-4">
+              </motion.p>
+              <motion.p className="text-md font-bold text-indigo-600 mt-4" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
                 Ulli Haw (Prev Employer):
                 <br />
                 <span className="text-gray-600 font-normal">
                   ulli@westwoods.co.za
                 </span>
-              </p>
-              <p className="text-md font-bold text-indigo-600 mt-4">
+              </motion.p>
+              <motion.p className="text-md font-bold text-indigo-600 mt-4" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
                 Michael Brain(Sengamedi Properties):
                 <br />
                 <span className="text-gray-600 font-normal">
                   micheal@tridentpress.co.za
                 </span>
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           )}
+          </div>
+          </AnimatePresence>
         </motion.div>
       </div>
 
-      <div>  <Icons /></div>
+     
     </div>
   );
 };
