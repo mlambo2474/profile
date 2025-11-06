@@ -2,19 +2,18 @@ import ProjectCard from "./ProjectCard";
 import ticVideo from "../assets/ticvideo.mp4";
 import amazonvid from "../assets/amazon.mp4";
 import teslavid from "../assets/tesalvid.mp4";
-import airbnbvid from "../assets/airbnb.mp4";
+// import airbnbvid from "../assets/airbnb.mp4";
 import netflixvid from "../assets/netflixvid.mp4";
 import signupvid from "../assets/signUPvideo.mp4";
-import instagram from "../assets/instagrambanner.jpg";
+// import instagram from "../assets/instagrambanner.jpg";
 import googlekeep from "../assets/Googlekeeplogo.jpg";
-import clock from "../assets/digitalClock.png"
-import mathsApp from "../assets/mathsImage.png"
-import twitter from "../assets/Xx.jpeg";
-import youtube from "../assets/youtube.jpg";
+// import clock from "../assets/digitalClock.png";
+// import mathsApp from "../assets/mathsImage.png";
+// import twitter from "../assets/Xx.jpeg";
+// import youtube from "../assets/youtube.jpg";
 import todo from "../assets/todo-list-javascriptapp.png";
 import carSale from "../assets/carsaleimage.png";
-import restaurant from "../assets/award4.jpg"
-
+import restaurant from "../assets/award4.jpg";
 
 export const projects = [
   {
@@ -34,9 +33,9 @@ export const projects = [
     codeLink: "https://github.com/mlambo2474/tesla",
   },
 
-{
+  {
     title: "Tic-Tac-Toe",
-    tags: ["React","CSS", "Styled-Components"],
+    tags: ["React", "CSS", "Styled-Components"],
     src: ticVideo,
     type: "video",
     visitLink: "https://gleaming-zabaione-0b7968.netlify.app/",
@@ -66,15 +65,15 @@ export const projects = [
     visitLink: "https://luminous-cat-a6d705.netlify.app/",
     codeLink: "https://github.com/mlambo2474/login-form",
   },
-     {
+  {
     title: "Carsale",
-    tags: ["HTML","CSS", "JS", "Node.js", "Express.js"],
+    tags: ["HTML", "CSS", "JS", "Node.js", "Express.js"],
     src: carSale,
     type: "image",
     visitLink: "https://carsale-dealership.onrender.com/",
     codeLink: "https://github.com/mlambo2474/carsale_dealership",
   },
-     {
+  {
     title: "Restaurant",
     tags: ["React", "Tailwind", "...."],
     src: restaurant,
@@ -100,14 +99,15 @@ export const projects = [
     codeLink: "https://github.com/mlambo2474/zaio-google-keep-clone",
   },
 
-//  {
-//     title: "Digital Clock",
-//     tags: ["HTML", "CSS", "JavaScript"],
-//     src: clock,
-//     type: "image",
-//     visitLink: "https://vocal-croissant-e09400.netlify.app/",
-//     codeLink: "https://github.com/mlambo2474/digital-clock",
-//   },
+  ,
+  //  {
+  //     title: "Digital Clock",
+  //     tags: ["HTML", "CSS", "JavaScript"],
+  //     src: clock,
+  //     type: "image",
+  //     visitLink: "https://vocal-croissant-e09400.netlify.app/",
+  //     codeLink: "https://github.com/mlambo2474/digital-clock",
+  //   },
   //  {
   //   title: "Maths App",
   //   tags: ["HTML", "CSS", "JavaScript"],
@@ -132,8 +132,7 @@ export const projects = [
   //   visitLink: "https://zaio-youtube-clone-html-css-only.netlify.app/",
   //   codeLink: "https://github.com/mlambo2474/Zaio-Youtube-Clone",
   // },
-,
-   {
+  {
     title: "Todo-list",
     tags: ["HTML", "CSS", "JavaScript"],
     src: todo,
@@ -141,5 +140,4 @@ export const projects = [
     visitLink: "https://todo-list-teal-eta.vercel.app/",
     codeLink: "https://github.com/mlambo2474/todo-list",
   },
-  
 ];

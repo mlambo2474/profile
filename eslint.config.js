@@ -19,6 +19,7 @@ export default [
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      'prettier': prettierPlugin,
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -28,6 +29,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'prettier/prettier': 'error', // <-- This enables Prettier formatting errors
     },
   },
 ]

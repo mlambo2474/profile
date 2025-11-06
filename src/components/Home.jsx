@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import hero from "../assets/hero.jpg";
-import profileImage from "../assets/tonderaimlambosimage.png"
+import profileImage from "../assets/tonderaimlambosimage.png";
 import { motion } from "framer-motion";
 import TypewriterHeading from "./TypewriterHeading";
 import ProjectCard from "./ProjectCard";
@@ -24,8 +24,16 @@ const Home = () => {
       // Hero entrance timeline
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.from(heroImgRef.current, { opacity: 0, y: 40, duration: 0.4 })
-        .from(heroTextRef.current, { opacity: 0, y: 20, duration: 0.4 }, "-=0.4")
-        .from(heroCtaRef.current, { opacity: 0, y: 16, duration: 0.5 }, "-=0.3");
+        .from(
+          heroTextRef.current,
+          { opacity: 0, y: 20, duration: 0.4 },
+          "-=0.4"
+        )
+        .from(
+          heroCtaRef.current,
+          { opacity: 0, y: 16, duration: 0.5 },
+          "-=0.3"
+        );
 
       // Background parallax
       if (heroBgRef.current && heroRef.current) {
@@ -43,27 +51,42 @@ const Home = () => {
 
       // Projects underline draw
       if (projectsTitleUnderlineRef.current) {
-        gsap.set(projectsTitleUnderlineRef.current, { scaleX: 0, transformOrigin: "center" });
+        gsap.set(projectsTitleUnderlineRef.current, {
+          scaleX: 0,
+          transformOrigin: "center",
+        });
         ScrollTrigger.create({
           trigger: projectsTitleUnderlineRef.current,
           start: "top 80%",
           once: true,
           onEnter: () => {
-            gsap.to(projectsTitleUnderlineRef.current, { scaleX: 1, duration: 0.4, ease: "power2.out" });
+            gsap.to(projectsTitleUnderlineRef.current, {
+              scaleX: 1,
+              duration: 0.4,
+              ease: "power2.out",
+            });
           },
         });
       }
 
       // Projects grid reveal
       if (projectsGridRef.current) {
-        const items = projectsGridRef.current.querySelectorAll("[data-project-card]");
+        const items = projectsGridRef.current.querySelectorAll(
+          "[data-project-card]"
+        );
         gsap.set(items, { opacity: 0, y: 24 });
         ScrollTrigger.create({
           trigger: projectsGridRef.current,
           start: "top 85%",
           once: true,
           onEnter: () => {
-            gsap.to(items, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.12 });
+            gsap.to(items, {
+              opacity: 1,
+              y: 0,
+              duration: 0.4,
+              ease: "power3.out",
+              stagger: 0.12,
+            });
           },
         });
       }
@@ -75,9 +98,15 @@ const Home = () => {
           const rect = btn.getBoundingClientRect();
           const relX = e.clientX - rect.left - rect.width / 2;
           const relY = e.clientY - rect.top - rect.height / 2;
-          gsap.to(btn, { x: relX * 0.08, y: relY * 0.08, duration: 0.2, ease: "power3.out" });
+          gsap.to(btn, {
+            x: relX * 0.08,
+            y: relY * 0.08,
+            duration: 0.2,
+            ease: "power3.out",
+          });
         };
-        const onLeave = () => gsap.to(btn, { x: 0, y: 0, duration: 0.3, ease: "power3.out" });
+        const onLeave = () =>
+          gsap.to(btn, { x: 0, y: 0, duration: 0.3, ease: "power3.out" });
         btn.addEventListener("mousemove", onMove);
         btn.addEventListener("mouseleave", onLeave);
         // Cleanup listeners
@@ -91,9 +120,9 @@ const Home = () => {
     return () => ctx.revert();
   }, []);
   const scrollToProjects = () => {
-    const projectsSection = document.querySelector('[data-projects-section]');
+    const projectsSection = document.querySelector("[data-projects-section]");
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+      projectsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -114,7 +143,7 @@ const Home = () => {
           className="absolute inset-0 w-full h-full object-cover"
           ref={heroBgRef}
         />
-        
+
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
 
@@ -138,7 +167,7 @@ const Home = () => {
           {/* Text Section */}
           <div className="text-center lg:text-left" ref={heroTextRef}>
             <TypewriterHeading />
-            
+
             {/* View Projects Button */}
             <motion.button
               onClick={scrollToProjects}
@@ -158,36 +187,57 @@ const Home = () => {
       <div className="flex justify-center lg:hidden items-center py-16 bg-gray-50">
         <p className="text-gray-600  sm:text-lg text-center leading-relaxed max-w-4xl px-4">
           I'm a passionate Front-end developer who loves building user-friendly,
-          responsive, user-focused mobile and web applications using modern technologies like <br />
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">HTML</span>
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">CSS</span>
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">JavaScript</span>
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">TypeScript</span><br />
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">Tailwind</span>
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">React</span> 
-          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">Redux</span><br />
-          I enjoy turning ideas into clean,
-          efficient code and constantly learning new tools to level up my
-          craft.
+          responsive, user-focused mobile and web applications using modern
+          technologies like <br />
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            HTML
+          </span>
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            CSS
+          </span>
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            JavaScript
+          </span>
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            TypeScript
+          </span>
+          <br />
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            Tailwind
+          </span>
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            React
+          </span>
+          <span className="bg-pink-300 px-2 mx-1 font-bold text-sm rounded-lg">
+            Redux
+          </span>
+          <br />I enjoy turning ideas into clean, efficient code and constantly
+          learning new tools to level up my craft.
         </p>
       </div>
 
-      {/* Projects Section */
-      }
+      {/* Projects Section */}
       <div data-projects-section className="py-2 bg-white">
-      <motion.div 
-      initial ={{ opacity: 0, y:-70}}
-      animate ={{ opacity:1, y:0}}
-      transition ={{ duration: 1.0, ease: "easeOut", delay:0.6}}
-      className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden">
-        <div className="inline-block text-center">
-        <h1 className=" text-4xl lg:text-6xl font-bold text-purple-500">
-            Projects
-          </h1>
-          <div className="w-3/4 mx-auto h-1 bg-indigo-500 rounded-full mt-2" ref={projectsTitleUnderlineRef}></div>
-        </div>
-      </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:mx-20 place-items-center" ref={projectsGridRef}>
+        <motion.div
+          initial={{ opacity: 0, y: -70 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0, ease: "easeOut", delay: 0.6 }}
+          className=" relative flex w-full p-10 items-center justify-center overflow-x-hidden"
+        >
+          <div className="inline-block text-center lg:mt-8">
+            <h1 className=" text-4xl lg:text-6xl font-bold text-purple-500">
+              Projects
+            </h1>
+            <div
+              className="w-3/4 mx-auto h-1 bg-indigo-500 rounded-full mt-2"
+              ref={projectsTitleUnderlineRef}
+            ></div>
+          </div>
+        </motion.div>
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:mx-20 place-items-center"
+          ref={projectsGridRef}
+        >
           {projects.map((project, index) => (
             <div key={index} data-project-card className="w-full h-full">
               <ProjectCard {...project} />

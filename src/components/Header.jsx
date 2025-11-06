@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { MdMenu } from "react-icons/md";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false); 
+  const [menuOpen, setMenuOpen] = useState(false);
   const [textColor, setTextColor] = useState("text-indigo-500");
   const [bgColor, setBgColor] = useState("bg-indigo-700/70");
 
-  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 70) {
@@ -34,7 +33,9 @@ const Header = () => {
   return (
     <div className={` w-full transition-colors duration-300  `}>
       <div className="flex h-16 items-center justify-between px-4 lg:px-8 max-w-7xl mx-auto mt-2 mb-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-md">
-        <div className={`flex flex-col ${textColor} text-xs sm:text-sm hover:text-white`}>
+        <div
+          className={`flex flex-col ${textColor} text-xs sm:text-sm hover:text-white`}
+        >
           <p>generaltonde@gmail.com</p>
           <p>+27 61 310 1642</p>
         </div>
@@ -68,12 +69,17 @@ const Header = () => {
             className="fixed inset-0 bg-black/30 lg:hidden z-40"
             onClick={() => setMenuOpen(false)}
           />
-          <div className={`fixed top-0 right-0 h-full w-1/2 ${bgColor} lg:hidden shadow-lg z-50`}>
+          <div
+            className={`fixed top-0 right-0 h-full w-1/2 ${bgColor} lg:hidden shadow-lg z-50`}
+          >
             <div className="flex flex-col items-start px-4 pt-4 pb-6">
               {navItems.map((id, index) => (
                 <button
                   key={id}
-                  onClick={() => { scrollToSection(id); setMenuOpen(false); }}
+                  onClick={() => {
+                    scrollToSection(id);
+                    setMenuOpen(false);
+                  }}
                   className={`block w-full px-2 py-2 text-sm text-left font-medium transition duration-300 border-b border-gray-200 text-white hover:text-indigo-700 hover:bg-pink-300 rounded-lg`}
                 >
                   {labels[index]}

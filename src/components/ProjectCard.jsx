@@ -3,7 +3,9 @@ import { FaCode } from "react-icons/fa";
 const ProjectCard = ({ title, tags, src, type, visitLink, codeLink }) => {
   const maxVisibleTags = 4;
   const visibleTags = Array.isArray(tags) ? tags.slice(0, maxVisibleTags) : [];
-  const hiddenCount = Array.isArray(tags) ? Math.max(tags.length - maxVisibleTags, 0) : 0;
+  const hiddenCount = Array.isArray(tags)
+    ? Math.max(tags.length - maxVisibleTags, 0)
+    : 0;
 
   return (
     <div className="group bg-[url('https://files.123freevectors.com/wp-content/original/107103-light-purple-abstract.jpg')] flex flex-col justify-center align-center rounded-lg max-w-80 m-6">
@@ -16,14 +18,12 @@ const ProjectCard = ({ title, tags, src, type, visitLink, codeLink }) => {
             loop
             muted
             playsInline
-            
           />
         ) : (
           <img
             src={src}
             alt={title}
             className="w-80 h-40 transition-all duration-500 ease-in-out transform lg:hover:scale-170 rounded-lg shadow-lg"
-            
           />
         )}
       </div>
@@ -41,7 +41,9 @@ const ProjectCard = ({ title, tags, src, type, visitLink, codeLink }) => {
           </span>
         ))}
         {hiddenCount > 0 && (
-          <span className="bg-purple-100 font-semibold text-purple-600 rounded px-1.5 py-0.5 mx-1 my-2">…</span>
+          <span className="bg-purple-100 font-semibold text-purple-600 rounded px-1.5 py-0.5 mx-1 my-2">
+            …
+          </span>
         )}
       </div>
 
